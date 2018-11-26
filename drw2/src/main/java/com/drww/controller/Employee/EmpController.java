@@ -31,10 +31,10 @@ public class EmpController {
      * @param map
      * @return
      */
-    @RequestMapping("/toList")
+  /*  @RequestMapping("/toList")
     public String toList(@RequestParam Map map){
         return "Emp/Emplist";
-    }
+    }*/
     /**
      * 查询员工列表
      * @param map
