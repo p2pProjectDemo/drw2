@@ -1,6 +1,6 @@
 package com.drww.service.employee;
-
 import com.drww.dao.employee.empDao;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,6 @@ public class empServiceImpl implements empService {
 
     @Autowired  //依赖注入
     private empDao empdao;
-
 
 
     /**
