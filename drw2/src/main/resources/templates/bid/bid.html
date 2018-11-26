@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <script src="/js1/jquery-2.1.0.js"></script>
+    <!--<link rel="stylesheet" href="/css1/bootstrap.css" />-->
+    <!--<script src="/js1/jquery-2.1.0.js"></script>-->
+    <!--<link rel="stylesheet" href="/css1/index.css" />-->
     <link rel="stylesheet" href="/css/bidstyle.css">
+    <style>
+        .left{
+            right: -540px;
+            top:0;
+        }
+        .container1{
+            margin-top: 30px;
+        }
+    </style>
 </head>
 <body>
 
@@ -117,19 +127,22 @@
 <script type="text/javascript">
     $("#btn").click(function () {
 
+
+
         var winW = $(window).width();
-        console.log("浏览器款" + winW)
+        console.log("浏览器宽：" + winW)
         var left = $(".left").get(0).offsetLeft;
-        console.log(left)
-        console.log(winW - left)
+        console.log("left左侧距离："+left)
+
         var w = winW - left;
+        console.log("win宽-left左侧-----w:"+w)
         var widthL = $(".left").width();
-        console.log(widthL)
-        if (w == (widthL + 1)) {
-            $(".left").css("right", -(widthL + 1) + "px")
+        console.log("left宽："+widthL)
+        if (w == "360") {
+            $(".left").css("right", -(widthL + 40) + "px")
             $(this).text('添加')
         } else {
-            $(".left").css("right", "0px")
+            $(".left").css("right", "-39px")
             $(this).text('取消')
         }
     })
