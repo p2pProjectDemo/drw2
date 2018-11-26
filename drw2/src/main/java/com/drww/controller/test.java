@@ -16,8 +16,8 @@ public class test {
 	@RequestMapping(value = "test1")
 	public String test1(){
 		System.out.println("途径此处a");
-//		System.out.println("构建完成");
-//		System.out.println("构建完成1");
+		System.out.println("构建完成");
+		System.out.println("构建完成1");
 		return "user";
 	}
 }
