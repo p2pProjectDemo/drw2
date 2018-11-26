@@ -16,8 +16,8 @@
                 url: "customer/jySession", //发送请求地址
                 //请求成功后的回调函数有两个参数
                 success: function (data) {
-                    if (data.session !== "1") {
-                        $("#uS").append("<div  STYLE='width: 120PX;' class=\"\"><a href=\"个人中心首页.html\" STYLE='width: 120PX;'  class=\"js-login\" >欢迎您，" + data.session + "</a></div>")
+                    if (data.session!= "-1") {
+                        $("#uS").append("<div  STYLE='width: 120PX;' class=\"\"><a href=\"个人中心首页.html\" STYLE='width: 140PX;'  class=\"js-login\" >欢迎您，" + data.session + "</a></div>")
                     } else {
                         $("#uS").append("<div class=\"\"><a href=\"login.html\" class=\"js-login\" title=\"登录\">登录</a></div>")
                     }

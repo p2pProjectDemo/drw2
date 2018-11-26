@@ -1,11 +1,14 @@
 package com.drww.controller.Employee;
 
 import com.drww.service.employee.empService;
+import com.drww.util.PageUtli;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
@@ -33,14 +36,19 @@ public class EmpController {
         return "Emp/Emplist";
     }
     /**
-     * 查询
+     * 查询员工列表
      * @param map
      * @return
      */
-    public Object getListEmp(@RequestParam Map map){
+    @RequestMapping("/getList")
+    public Object getListEmp(@RequestParam Map map, Model model, HttpServletRequest request){
 
-        List<Map> empserviceList = empservice.getList(map);
+        map.put("pageSize",10);
+        int pageNo = map.get("pageNo") == null?1 : Integer.valueOf(map.get("pageNo") + "");
+        String stringPage = new PageUtli(pageNo, 10, empservice.getPageCount(map), request).getStringPage();
+        model.addAttribute("stringPage",stringPage);
+        model.addAttribute("empList",empservice.getList(map));
 
-        return empserviceList;
+        return "Emp/Emplist";
     }
 }

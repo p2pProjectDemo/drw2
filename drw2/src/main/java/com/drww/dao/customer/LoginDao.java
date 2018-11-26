@@ -30,7 +30,8 @@ public interface LoginDao {
     Customer getByName(String userName);
 
     /**
-     * 根据用户名查询师傅存在
+     * 根据用户ID
+     * 查询师傅存在
      * @param userId
      * @return
      */

@@ -23,6 +23,7 @@ import java.util.Map;
  * createTime:2018-11-23 17:28
  */
 @Controller
+@RequestMapping(value = "UserLogin")
 public class UserLoginController {
 
     @Autowired
@@ -56,14 +57,19 @@ public class UserLoginController {
             // e.printStackTrace();
             //登录失败 用户名不存在
             redirectAttributes.addFlashAttribute("msg","用户名不存在");
-            return "redirect:/toUserLogin";
+            return "redirect:/UserLogin/toUserLogin";
         }catch (IncorrectCredentialsException e) {
             // e.printStackTrace();
             //登录失败 密码错误
             redirectAttributes.addFlashAttribute("msg","密码错误");
-            return "redirect:/toUserLogin";
+            return "redirect:/UserLogin/toUserLogin";
         }
-        return "index";
+        return "redirect:/UserLogin/toIndex";
+    }
+    @RequestMapping(value = "toIndex")
+    public String toIndex(){
+
+        return "Index";
     }
 
     //注销用户

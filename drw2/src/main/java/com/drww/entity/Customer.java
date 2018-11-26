@@ -13,16 +13,26 @@ public class Customer {
    private  String passWord;
    private  String telephone;
    private  String recommend;  // 推荐人
+    private  String nickName;
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
 
     public Customer() {
     }
 
-    public Customer(Integer userId, String userName, String passWord, String telephone, String recommend) {
+    public Customer(Integer userId, String userName, String passWord, String telephone, String recommend, String nickName) {
         this.userId = userId;
         this.userName = userName;
         this.passWord = passWord;
         this.telephone = telephone;
         this.recommend = recommend;
+        this.nickName = nickName;
     }
 
     public Integer getUserId() {

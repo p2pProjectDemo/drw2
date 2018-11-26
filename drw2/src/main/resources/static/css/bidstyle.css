@@ -1,0 +1,34 @@
+body,html{
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	overflow: hidden;
+}
+.container1{
+	position: relative;
+	
+}
+.tableLeft{
+	border-collapse: collapse;
+}
+.left{
+	position: absolute;
+	right: -501px;
+	width: 500px;
+	height: 1000px;
+	transition:  all 0.35s;
+	border-right: 1px solid #ddd;
+	background: #D3C294;
+}
+.left tr td{
+	padding: 10px;
+}
+.tj{
+	height: 30px;
+    width: 150px;
+    margin-top: 10px;
+}
+.listye{
+	margin-top: 240px;
+	width: 1200px;
+}
