@@ -12,35 +12,77 @@
     <script type="text/javascript" src="script/jquery.min.js"></script>
     <script type="text/javascript" src="script/common.js"></script>
     <script src="script/user.js" type="text/javascript"></script>
-<script type="application/javascript">
-    $(function () {
-        $.ajax({
-            type: "post", //请求方式
-            dataType: "json",
-            url: "customer/getTelephoneByUserName", //发送请求地址
-            //请求成功后的回调函数有两个参数
-            success: function (data) {
-                if (data.telephone!="0"){
-                    $("#telephone").html(data.telephone);
-                    $("#telephone1").append("<i class=\"grzxbg p-right\"></i>");
-                    $("#telephone2").append("<a href=\"javascript:void(0)\" onclick=\"showSpan('alert-checkOldMobile')\">更改</a>");
-                }else{
-                    $("#telephone").html("没有绑定手机号");
-                    $("#telephone1").append(" <i class=\"grzxbg p-danger\">");
-                    $("#telephone2").append("<a href=\"javascript:void(0)\" onclick=\"showSpan('alert-checkOldMobile')\">绑定</a>");
+    <script type="application/javascript">
+        $(function () {
+            jytema();
+
+            realname();
+
+        })
+
+        //校验实名认证
+        function realname(){
+            $.ajax({
+                type: "post", //请求方式
+                dataType: "json",
+                url: "customer/realName", //发送请求地址
+                //请求成功后的回调函数有两个参数
+                success: function (data) {
+                        if(data.msg!="-1"){
+                            $("#realName").append("<i class=\"grzxbg p-right\"></i>");
+                            $("#realName1").html(data.msg);
+                            $("#realName2").append("<a href=\"#\">认证</a></span>");
+                        }else{
+                            $("#realName").append("</span><i class=\"grzxbg p-danger\">");
+                            $("#realName1").html("未认证");
+                            $("#realName2").append("<a href=\"#\">去认证</a></span>");
+                        }
                 }
-            }
+            })
+        }
+
+        //校验电话  邮箱
+        function  jytema(){
+            $.ajax({
+                type: "post", //请求方式
+                dataType: "json",
+                url: "customer/getTelephoneByUserName", //发送请求地址
+                //请求成功后的回调函数有两个参数
+                success: function (data) {
+                    var user = data.customer;
+                    if (user.telephone != "" && user.telephone != null) {
+                        $("#telephone").html(user.telephone);
+                        $("#telephone1").append("<i class=\"grzxbg p-right\"></i>");
+                        $("#telephone2").append("<a href=\"javascript:void(0)\" onclick=\"showSpan('alert-checkOldMobile')\">更改</a>");
+                    }
+                    if (user.telephone == "" || user.telephone == null) {
+                        $("#telephone").html("没有绑定手机号");
+                        $("#telephone1").append(" <i class=\"grzxbg p-danger\">");
+                        $("#telephone2").append("<a href=\"javascript:void(0)\" onclick=\"showSpan('alert-checkOldMobile')\">绑定</a>");
+                    }
+                    if (user.email != "" && user.email != null) {
+                        $("#email2").html(user.email);
+                        $("#email1").append("<i class=\"grzxbg p-right\"></i>");
+                        $("#email3").append("<a href=\"#\" onclick=\"showSpan('alert-updateEmail')\">更改</a>");
+                    }
+                    if (user.email == "" || user.email == null) {
+                        $("#email2").html("你还没有绑定邮箱");
+                        $("#email1").append("<i class=\"grzxbg p-danger\">");
+                        $("#email3").append("<a href=\"javascript:void(0)\" onclick=\"showSpan('alert-checkOldMobile')\">绑定</a>");
+                    }
+                }
 
             })
-    })
+        }
 
-</script>
+
+    </script>
 </head>
 <body>
 <header id="thead">
-<script>
-    $("#thead").load("head.html");
-</script>
+    <script>
+        $("#thead").load("head.html");
+    </script>
 </header>
 <!--个人中心-->
 <div class="wrapper wbgcolor">
@@ -69,17 +111,32 @@
                         class="arrow-personal">请尽快完成账户安全设置，以确保您的账户安全</span><span class="grzxbg icon-personal"></span>
                 </div>
                 <ul>
-                    <li><span id="telephone1"></span><span class="zhsz-span1">手机号</span><span class="zhsz-span2" id="telephone"></span><span
+                    <li><span id="telephone1"></span><span class="zhsz-span1">手机号</span><span class="zhsz-span2"
+                                                                                              id="telephone"></span><span
                             class="zhsz-span3" id="telephone2"></span>
                     </li>
                     <input type="hidden" value="false" id="authenticationMobile">
-                    <li><i class="grzxbg p-danger"></i><span class="zhsz-span1">身份认证</span><span
-                            class="zhsz-span2">未认证</span><span class="zhsz-span3"><a href="#">认证</a></span></li>
+
+
+
+                    <li><span id="realName"></span><span class="zhsz-span1">身份认证</span><span
+                            class="zhsz-span2" id="realName1"></span><span class="zhsz-span3" id="realName2"></span></li>
+
+
+
+
+
                     <li><i class="grzxbg p-danger"></i><span class="zhsz-span1">第三方支付</span><span
                             class="zhsz-span2">未开通</span><span class="zhsz-span3"><a href="#">开通</a></span></li>
-                    <li><i class="grzxbg p-right"></i> <span class="zhsz-span1">电子邮箱</span> <span class="zhsz-span2">348****@qq.com</span>
-                        <span class="zhsz-span3"> <a href="#" onclick="showSpan('alert-updateEmail')">更改</a> </span>
+
+
+
+                    <li><span id="email1"></span> <span class="zhsz-span1">电子邮箱</span><span  id="email2" class="zhsz-span2">348****@qq.com</span>
+                        <span class="zhsz-span3"><span id="email3"></span>  </span>
                     </li>
+
+
+
                     <li><i class="grzxbg p-right"></i><span class="zhsz-span1">登录密码</span><span
                             class="zhsz-span2"></span><span class="zhsz-span3"><a href="javascript:void(0)"
                                                                                   onclick="showSpan('alert-updatePass')">更改</a></span>
@@ -87,7 +144,6 @@
                 </ul>
             </div>
         </div>
-
 
 
     </div>

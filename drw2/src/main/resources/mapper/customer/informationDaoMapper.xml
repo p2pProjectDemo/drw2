@@ -8,4 +8,12 @@
 
         select telephone from tb_user where username=#{userName}
     </select>
+    <select id="getRealNameByUserId" parameterType="Integer" resultType="map">
+        select * from tb_user a join tb_realname b on a.userid=b.userid where a.userid=#{userId}
+    </select>
+    
+    <select id="getAuditorStatus" parameterType="Integer" resultType="map">
+        select item from tb_systemcategoryitem where id=#{audutorId}
+    </select>
+
 </mapper>

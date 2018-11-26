@@ -2,6 +2,9 @@ package com.drww.dao.customer;
 
 import com.drww.entity.Customer;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * className:InformationDao
  * discriptoin:
@@ -16,5 +19,20 @@ public interface InformationDao {
      * @return
      */
     Customer getTelephoneByUserName(String userName);
+
+
+    /**
+     * 根据用户id查询实名认证
+     * @param userId
+     * @return
+     */
+    List<Map> getRealNameByUserId(Integer userId);
+
+    /**
+     * 查询审核状态
+     * @param audutorId
+     * @return
+     */
+    List<Map> getAuditorStatus(String audutorId);
 
 }

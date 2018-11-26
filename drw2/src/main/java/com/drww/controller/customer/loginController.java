@@ -128,11 +128,17 @@ public class loginController {
     @ResponseBody
     @RequestMapping(value = "jySession")
     public Object jySession(HttpSession session) {
-        Object customerName = session.getAttribute("CustomerName");
         Map map = new HashMap();
-        if (customerName != null&&customerName!="") {
-            map.put("session", customerName);
-        } else {
+        Object customerName = session.getAttribute("CustomerName");
+        if (customerName != null&&customerName!=""){
+            Customer customer = loginService.getByName(customerName.toString());
+            String nickName = customer.getNickName();
+            if (nickName != null&&nickName!="") {
+                map.put("session", nickName);
+            } else {
+                map.put("session", "1");
+            }
+        }else{
             map.put("session", "1");
         }
         return map;
