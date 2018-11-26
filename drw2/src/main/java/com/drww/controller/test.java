@@ -19,6 +19,8 @@ public class test {
 		System.out.println("构建完成");
 		System.out.println("构建完成1111");
 		System.out.println("构建完成122222");
+		System.out.println("构建完成1111");
+		System.out.println("构建完成122222");
 		return "user";
 	}
 }

@@ -37,7 +37,7 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         //添加Shiro 内置过滤器
         Map<String, String> filterMap = new LinkedHashMap<>();
-        filterMap.put("/toUserLogin", "anon");
+        filterMap.put("/UserLogin/toUserLogin", "anon");
         filterMap.put("/css/**", "anon");
         filterMap.put("/css1/**", "anon");
         filterMap.put("/fonts-awesome/**", "anon");
