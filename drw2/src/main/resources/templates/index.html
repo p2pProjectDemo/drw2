@@ -27,6 +27,7 @@
 								"</li>";
                             if (data[i].childrenList != null) {
                                 for (var j = 0; j < data[i].childrenList.length; j++) {
+                                    console.log(data[i].childrenList[j].URL)
                                     str += "<ul id='"+data[i].NAME+"' class=\"nav nav-list collapse menu-second\" >\n" +
 												"<li>\n" +
 													"<a href=\"###\" onclick=\"showAtRight('"+data[i].childrenList[j].URL+"')\"><i class=\"fa fa-users\"></i>"+data[i].childrenList[j].NAME+"</a>\n" +
