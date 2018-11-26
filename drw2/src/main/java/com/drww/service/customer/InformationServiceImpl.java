@@ -33,7 +33,7 @@ public class InformationServiceImpl implements InformationService {
         return realNameList;
     }
     @Override
-    public List<Map> getAuditorStatus(String audutorId) {
+    public List<Map> getAuditorStatus(Integer audutorId) {
         List<Map> auditorStatus = informationDao.getAuditorStatus(audutorId);
         return auditorStatus;
     }

@@ -136,10 +136,10 @@ public class loginController {
             if (nickName != null&&nickName!="") {
                 map.put("session", nickName);
             } else {
-                map.put("session", "1");
+                map.put("session", customer.getUserName());
             }
         }else{
-            map.put("session", "1");
+            map.put("session", "-1");
         }
         return map;
     }

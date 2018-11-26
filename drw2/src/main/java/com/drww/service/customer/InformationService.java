@@ -31,5 +31,5 @@ public interface InformationService {
      * @param audutorId
      * @return
      */
-    List<Map> getAuditorStatus(String audutorId);
+    List<Map> getAuditorStatus(Integer audutorId);
 }

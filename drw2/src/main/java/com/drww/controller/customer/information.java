@@ -60,15 +60,16 @@ public class information {
         if (customerName!=null){
             Customer customer = informationService.getTelephoneByUserName(customerName.toString());
             List<Map> realNameList = informationService.getRealNameByUserId(customer.getUserId());
-            System.out.println(realNameList);
             if(realNameList!=null&&realNameList.size()>0){
                 Integer auditorid = Integer.valueOf(realNameList.get(0).get("AUDITORID").toString());
-                List<Map> realNameByUserId = informationService.getRealNameByUserId(auditorid);
+                System.out.println(auditorid);
+                List<Map> realNameByUserId = informationService.getAuditorStatus(auditorid);
+                System.out.println(realNameByUserId);
                 Object item = realNameByUserId.get(0).get("ITEM");
                 System.out.println(item);
-                return   map.put("msg",item);
+                 map.put("meg",item);
             }else{
-                map.put("msg","-1");
+                map.put("meg","-1");
             }
         }
         return  map;

@@ -33,6 +33,6 @@ public interface InformationDao {
      * @param audutorId
      * @return
      */
-    List<Map> getAuditorStatus(String audutorId);
+    List<Map> getAuditorStatus(Integer audutorId);
 
 }

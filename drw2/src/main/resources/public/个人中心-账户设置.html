@@ -28,15 +28,19 @@
                 url: "customer/realName", //发送请求地址
                 //请求成功后的回调函数有两个参数
                 success: function (data) {
-                        if(data.msg!="-1"){
+
+                        if(data.meg!="-1"){
                             $("#realName").append("<i class=\"grzxbg p-right\"></i>");
-                            $("#realName1").html(data.msg);
-                            $("#realName2").append("<a href=\"#\">认证</a></span>");
+                            $("#realName1").html(data.meg);
+                            $("#realName2").append("<a href=\"#\">查看信息</a></span>");
                         }else{
                             $("#realName").append("</span><i class=\"grzxbg p-danger\">");
                             $("#realName1").html("未认证");
                             $("#realName2").append("<a href=\"#\">去认证</a></span>");
                         }
+                },
+                error:function (data) {
+                    console.log(22)
                 }
             })
         }
