@@ -11,5 +11,16 @@ import java.util.Map;
  */
 public interface empService {
 
+    /**
+     * 分页查询
+     * @param map
+     * @return
+     */
     List<Map> getList(Map map);
+    /**
+     * 分页总数量
+     * @param map
+     * @return
+     */
+    int getPageCount(Map map);
 }

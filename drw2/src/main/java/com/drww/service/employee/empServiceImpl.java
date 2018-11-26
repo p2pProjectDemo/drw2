@@ -20,14 +20,31 @@ public class empServiceImpl implements empService {
     @Autowired  //依赖注入
     private empDao empdao;
 
+
+
     /**
-     * 查询
+     * 查询分页
      * @param map
      * @return
      */
     @Override
     public List<Map> getList(Map map) {
+        int pageNo=map.get("pageNo")==null?1:Integer.valueOf(map.get("pageNo")+"");
+        int pageSize=map.get("pageSize")==null?10:Integer.valueOf(map.get("pageSize")+"");
+        //计算分页的开始值和结束值
+        map.put("start",(pageNo-1)*pageSize);
+        map.put("end",pageNo*pageSize+1);
         List<Map> list = empdao.getList(map);
         return list;
+    }
+
+    /**
+     * 分页总数量
+     * @param map
+     * @return
+     */
+    @Override
+    public int getPageCount(Map map) {
+        return empdao.getPageCount(map);
     }
 }

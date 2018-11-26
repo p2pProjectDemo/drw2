@@ -14,8 +14,9 @@ import java.util.Map;
  * createTime:2018-11-23 11:53
  */
 @Service
+@SuppressWarnings("all")
 public class FunctionServiceImpl implements FunctionService {
-        @Autowired
+        @Autowired  //依赖注入
         private FunctionDao functionDao;
 
     @Override
