@@ -97,7 +97,7 @@
                 <td>操作</td>
             </tr>
             <tr th:each="bid : ${bidList}">
-                <td>序号</td>
+                <td th:text="${bidStat.count}"></td>
                 <td th:text="${bid.BID_MONEY}"></td>
                 <td th:text="${bid.BID_CREATION_TIME}"></td>
                 <td th:text="${bid.BID_MINIMUM}"></td>

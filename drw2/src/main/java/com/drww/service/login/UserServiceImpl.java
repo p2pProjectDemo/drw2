@@ -15,6 +15,7 @@ import java.util.List;
  * createTime:2018-11-23 17:41
  */
 @Service
+@SuppressWarnings("all")
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;

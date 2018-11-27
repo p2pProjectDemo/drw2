@@ -5,10 +5,15 @@
 <mapper namespace="com.drww.dao.employee.empDao">
     <!--查询-->
     <select id="getList" resultType="map">
-      select a.empid,a.ename,b.deptname,c.dutyname from tb_employee a
-      join tb_dept b on a.deptid=b.deptid
-      join tb_duty c on a.dutyid=c.dutyid
+        select * from
+        (select rownum rn,a.empid,a.ename,a.sex,a.age,a.ephone,a.email,a.eident,a.educ,a.living,b.deptname,c.dutyname from tb_employee a
+        join tb_dept b on a.deptid=b.deptid
+        join tb_duty c on a.dutyid=c.dutyid
+        where rownum &lt; #{end}) d where d.rn > #{start}
     </select>
-
+<!--查询总数量-->
+<select id="getPageCount" resultType="int">
+  select count(*) from tb_employee
+</select>
 
 </mapper>

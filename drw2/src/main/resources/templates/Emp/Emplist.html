@@ -9,7 +9,39 @@
 </head>
 <body>
 
+<table>
+    <tr>
+        <td>序号</td>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>年龄</td>
+        <td>联系方式</td>
+        <td>邮箱</td>
+        <td>身份证号</td>
+        <td>学历</td>
+        <td>现住址</td>
+        <td>部门</td>
+        <td>职务</td>
+        <td>操作</td>
+    </tr>
+    <tr th:each="Emp:${empList}">
+        <td th:text="${Empstat.count}"></td>
+        <td th:text="${Emp.ENAME}"></td>
+        <td th:text="${Emp.SEX}"></td>
+        <td th:text="${Emp.AGE}"></td>
+        <td th:text="${Emp.EPHONE}"></td>
+        <td th:text="${Emp.EMAIL}"></td>
+        <td th:text="${Emp.EIDENT}"></td>
+        <td th:text="${Emp.EDUC}"></td>
+        <td th:text="${Emp.LIVING}"></td>
+        <td th:text="${Emp.DEPTNAME}"></td>
+        <td th:text="${Emp.DUTYNAME}"></td>
+        <td><button type="button" class="btn btn-primary"><a href="" >更改</a></button>&nbsp;
+            <button type="button" class="btn btn-primary"><a href="">注销</a></button>
 
-    <p th:each>ff111f</p>
+        </td>
+    </tr>
+</table>
+
 </body>
 </html>
