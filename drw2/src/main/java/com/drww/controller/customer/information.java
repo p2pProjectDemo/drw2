@@ -5,6 +5,7 @@ import com.drww.service.customer.InformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
@@ -73,7 +74,64 @@ public class information {
             }
         }
         return  map;
-
     }
+
+
+    /**
+     * 教育水平
+     * @return
+     */
+    @RequestMapping(value = "getEducation")
+    @ResponseBody
+    public List<Map> getEducation() {
+        List<Map> education = informationService.getEducation();
+        return education;
+    }
+
+    /**
+     * 婚姻状态
+     * @return
+     */
+    @RequestMapping(value = "getMarriage")
+    @ResponseBody
+    public List<Map> getMarriage() {
+        List<Map> marriage = informationService.getMarriage();
+        return marriage;
+    }
+
+    /**
+     * 现住址
+     * @return
+     */
+    @RequestMapping(value = "getAddress")
+    @ResponseBody
+    public List<Map> getAddress() {
+        List<Map> address = informationService.getAddress();
+        return address;
+    }
+
+    /**
+     * 收入
+     * @return
+     */
+    @RequestMapping(value = "getIncome")
+    @ResponseBody
+    public List<Map> getIncome() {
+        List<Map> income = informationService.getIncome();
+        return income;
+    }
+
+
+    @RequestMapping(value = "SubmissionRealName")
+    @ResponseBody
+    public Object SubmissionRealName(@RequestParam Map  map,HttpSession session){
+        int i = informationService.SubmissionRealName(map, session);
+          return i;
+    }
+
+
+
+
+
 
 }

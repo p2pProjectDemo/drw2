@@ -18,8 +18,10 @@
                 success: function (data) {
                     if (data.session!= "-1") {
                         $("#uS").append("<div  STYLE='width: 120PX;' class=\"\"><a href=\"个人中心首页.html\" STYLE='width: 140PX;'  class=\"js-login\" >欢迎您，" + data.session + "</a></div>")
+                        $("#href1").attr("href","个人中心首页.html")
                     } else {
                         $("#uS").append("<div class=\"\"><a href=\"login.html\" class=\"js-login\" title=\"登录\">登录</a></div>")
+                        $("#href1").attr("href","login.html")
                     }
                 }
             })
@@ -78,9 +80,9 @@
         <ul class="top-nav fn-clear">
             <li class="on"> <a href="index.html">首页</a> </li>
             <li> <a href="list.html" class="">我要投资</a> </li>
-            <li><a href="">我要贷款</a></li>
+            <li><a href="borrow.html">我要贷款</a></li>
             <li> <a href="帮助中心.html">安全保障</a> </li>
-            <li class="top-nav-safe"> <a href="个人中心首页.html">我的账户</a> </li>
+            <li class="top-nav-safe"> <a id="href1" >我的账户</a></span> </li>
             <li> <a href="公司简介.html">关于我们</a> </li>
         </ul>
     </div>

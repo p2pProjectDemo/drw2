@@ -16,4 +16,26 @@
         select item from tb_systemcategoryitem where id=#{audutorId}
     </select>
 
+    <select id="getEducation" resultType="map">
+      select * from tb_systemcategoryitem where parentid=1
+    </select>
+    <select id="getMarriage" resultType="map">
+        select * from tb_systemcategoryitem where parentid=3
+    </select>
+    <select id="getAddress" resultType="map">
+        select * from tb_systemcategoryitem where parentid=2
+    </select>
+    <select id="getIncome" resultType="map">
+        select * from tb_systemcategoryitem where parentid=4
+    </select>
+    
+    
+    
+    <insert id="SubmissionRealName" parameterType="map">
+  insert into tb_realname (id,userid,realname,sex,address,idnumber,academic,marriage,income,auditorid,housed)
+   values(seq_realname_id.nextval,#{userId},#{realName},#{sex},#{address},#{idNumber},#{education},#{marriage},#{income},21,#{housed})
+    </insert>
+
+    
+
 </mapper>

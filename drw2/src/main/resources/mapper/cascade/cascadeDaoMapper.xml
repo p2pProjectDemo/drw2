@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.drww.dao.cascade.CascadeDao">
+    <select id="getProvince" resultType="map">
+      select * from hat_province
+    </select>
+
+    <select id="getCity" resultType="map" parameterType="Integer">
+        select * from hat_city where father = #{Pid}
+    </select>
+
+    <select id="getArea" resultType="map" parameterType="Integer">
+        select * from hat_area where father = #{Pid}
+    </select>
+
+
+
+
+    <select id="getProvinceById" resultType="map" parameterType="Integer">
+        select * from hat_province where provinceid=#{id}
+    </select>
+
+    <select id="getCityById" resultType="map" parameterType="Integer">
+        select * from hat_city where cityid = #{id}
+    </select>
+
+    <select id="getAreaById" resultType="map" parameterType="Integer">
+        select * from hat_area where areaid = #{id}
+    </select>
+</mapper>

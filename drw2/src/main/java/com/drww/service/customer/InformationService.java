@@ -2,6 +2,7 @@ package com.drww.service.customer;
 
 import com.drww.entity.Customer;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -32,4 +33,32 @@ public interface InformationService {
      * @return
      */
     List<Map> getAuditorStatus(Integer audutorId);
+    /**
+     * 从数据库获取学历
+     * @return
+     */
+    List<Map> getEducation();
+
+    /**
+     * 从数据库获取婚姻状态
+     * @return
+     */
+    List<Map> getMarriage();
+    /**
+     * 从数据库获取现住址
+     * @return
+     */
+    List<Map> getAddress();
+    /**
+     * 从数据库获取收入级别
+     * @return
+     */
+    List<Map> getIncome();
+
+    /**
+     * 提交认证信息
+     * @param map
+     * @return
+     */
+    int SubmissionRealName(Map map, HttpSession session);
 }
