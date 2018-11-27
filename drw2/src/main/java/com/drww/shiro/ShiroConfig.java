@@ -38,6 +38,7 @@ public class ShiroConfig {
         //添加Shiro 内置过滤器
         Map<String, String> filterMap = new LinkedHashMap<>();
         filterMap.put("/UserLogin/toUserLogin", "anon");
+        filterMap.put("/UserLogin/userLogin", "anon");
         filterMap.put("/css/**", "anon");
         filterMap.put("/css1/**", "anon");
         filterMap.put("/fonts-awesome/**", "anon");
@@ -49,7 +50,7 @@ public class ShiroConfig {
         //设置未授权的页面
         shiroFilterFactoryBean.setUnauthorizedUrl("/toUserLogin111");
         //修改调整的登录页面
-        shiroFilterFactoryBean.setLoginUrl("/toUserLogin");
+        shiroFilterFactoryBean.setLoginUrl("/UserLogin/toUserLogin");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);
         return shiroFilterFactoryBean;
     }
